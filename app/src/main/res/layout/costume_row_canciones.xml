@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/imagenCancion"
+                android:layout_width="120dp"
+                android:layout_height="90dp"
+                android:padding="4dp" />
+
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_width="213dp"
+                android:layout_height="31dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/imagenCancion"
+                android:text="titulo"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="#000000" />
+
+
+            <TextView
+                android:id="@+id/detalles"
+                android:layout_width="212dp"
+                android:layout_height="59dp"
+                android:layout_below="@id/titulo"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="9dp"
+                android:layout_toRightOf="@id/imagenCancion"
+                android:text="detalles"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="#000000" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
