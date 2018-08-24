@@ -35,8 +35,8 @@ public class AdapterCancion extends RecyclerView.Adapter<AdapterCancion.CancionV
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CancionViewHolder holder, int position) {
-        Cancion cancion = listaCanciones.get(position);
+    public void onBindViewHolder(@NonNull CancionViewHolder holder, int i) {
+        Cancion cancion = listaCanciones.get(i);
         holder.textViewTitulo.setText(cancion.getNombre());
         holder.textViewDetalles.setText(cancion.getCategoria()+ "\n" +
                 cancion.getAlbum() + "\n" + cancion.getDuracion());
