@@ -3,17 +3,19 @@ package com.laboratoriorepaso.clases;
 public class Cancion {
 
     private String nombre;
+    private String autor;
     private String categoria;
     private String album;
     private int duracion;
     private int imagen;
 
-    public Cancion(String nombre,String categoria,String album, int duracion,int imagen) {
+    public Cancion(String nombre,String categoria,String album, int duracion,int imagen,String autor) {
         this.nombre = nombre;
         this.categoria = categoria;
         this.album = album;
         this.duracion = duracion;
         this.imagen = imagen;
+        this.autor = autor;
     }
 
     public int getDuracion() {
@@ -54,5 +56,13 @@ public class Cancion {
 
     public void setImagen(int imagen) {
         this.imagen = imagen;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 }
