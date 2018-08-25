@@ -41,6 +41,11 @@ public class AdapterCancion extends RecyclerView.Adapter<AdapterCancion.CancionV
         return holder;
     }
 
+    public void filtrarLista(HashMap<String,Cancion> lista){
+        listaCanciones = lista;
+        notifyDataSetChanged();
+    }
+
     @Override
     public void onBindViewHolder(@NonNull CancionViewHolder holder, int i) {
         String llave = getLlave(i);

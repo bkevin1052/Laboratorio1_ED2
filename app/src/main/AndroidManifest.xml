@@ -9,21 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PrincipalActivity">
-        </activity>
-        <activity
-            android:name=".PlayListActivity"
-            android:label="Play List"></activity>
 
         <activity
             android:name=".SplashScreenActivity"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".PrincipalActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".PrincipalActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".PlayListActivity"></activity>
+
+        <activity
+            android:name=".PlayListActivity"
+            android:label="Play List"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

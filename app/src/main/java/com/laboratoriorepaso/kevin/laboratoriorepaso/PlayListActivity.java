@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.laboratoriorepaso.adaptador.AdapterPlayList;
 import com.laboratoriorepaso.clases.Cancion;
@@ -21,10 +22,15 @@ public class PlayListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_list);
 
-        recyclerViewCancion = (RecyclerView) findViewById(R.id.RecyclerViewVerTodas);
+        recyclerViewCancion = (RecyclerView) findViewById(R.id.RecyclerViewPlayList);
         recyclerViewCancion.setLayoutManager(new LinearLayoutManager(this));
         adapterPlayList = new AdapterPlayList(this, playList);
         recyclerViewCancion.setAdapter(adapterPlayList);
+
+
+        adapterPlayList.setOnClickListener(view -> {
+            Toast.makeText(getApplicationContext(),"Reproduciendo cancion",Toast.LENGTH_SHORT).show();
+        });
 
     }
 }

@@ -5,16 +5,23 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.laboratoriorepaso.adaptador.AdapterCancion;
+import com.laboratoriorepaso.clases.Cancion;
+
+import java.util.HashMap;
 
 public class PrincipalActivity extends AppCompatActivity {
 
     RecyclerView recyclerViewCancion;
     AdapterCancion adapterCancion;
     Button playList;
+    EditText buscador;
 
 
 
@@ -25,8 +32,28 @@ public class PrincipalActivity extends AppCompatActivity {
         //Indicando ID al objeto
         playList = (Button)findViewById(R.id.verPlaylist);
         recyclerViewCancion = (RecyclerView) findViewById(R.id.RecyclerViewVerTodas);
+        buscador = (EditText)findViewById(R.id.idBuscaListaB);
+
+        buscador.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                filtro(editable.toString());
+            }
+        });
 
         //Creacion de canciones
+
 
 
         //configuracion del adapter y recyclerview
@@ -43,5 +70,15 @@ public class PrincipalActivity extends AppCompatActivity {
         playList.setOnClickListener(view->{
             startActivity(new Intent(PrincipalActivity.this,PlayListActivity.class));
         });
+    }
+
+    private void filtro(String text){
+        HashMap<String,Cancion> listaFiltrada = new HashMap<>();
+        for(Cancion item: listaFiltrada.values()){
+            if (item.getNombre().toLowerCase().contains(text)){
+                listaFiltrada.put(item.getNombre(),item);
+            }
+        }
+        adapterCancion.filtrarLista(listaFiltrada);
     }
 }
