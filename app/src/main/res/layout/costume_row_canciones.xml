@@ -27,7 +27,7 @@
                 android:layout_height="31dp"
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@id/imagenCancion"
-                android:text="titulo"
+                android:text=""
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="#000000" />
 
@@ -40,7 +40,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="9dp"
                 android:layout_toRightOf="@id/imagenCancion"
-                android:text="detalles"
+                android:text=""
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="#000000" />
 

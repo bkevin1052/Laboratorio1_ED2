@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.laboratoriorepaso.clases.Cancion;
 import com.laboratoriorepaso.kevin.laboratoriorepaso.R;
+import com.laboratoriorepaso.kevin.laboratoriorepaso.SplashScreenActivity;
+
 import java.util.HashMap;
 
 public class AdapterCancion extends RecyclerView.Adapter<AdapterCancion.CancionViewHolder> implements View.OnClickListener{
@@ -22,6 +24,11 @@ public class AdapterCancion extends RecyclerView.Adapter<AdapterCancion.CancionV
     public AdapterCancion(Context miContexto, HashMap<String,Cancion> listaCanciones) {
         this.miContexto = miContexto;
         this.listaCanciones = listaCanciones;
+    }
+
+    public String getLlave(int position)
+    {
+        return (String) SplashScreenActivity.llaves.get(position);
     }
 
 
@@ -36,7 +43,8 @@ public class AdapterCancion extends RecyclerView.Adapter<AdapterCancion.CancionV
 
     @Override
     public void onBindViewHolder(@NonNull CancionViewHolder holder, int i) {
-        Cancion cancion = listaCanciones.get(i);
+        String llave = getLlave(i);
+        Cancion cancion = listaCanciones.get(llave);
         holder.textViewTitulo.setText(cancion.getNombre());
         holder.textViewDetalles.setText(cancion.getCategoria()+ "\n" +
                 cancion.getAlbum() + "\n" + cancion.getDuracion());
@@ -66,8 +74,8 @@ public class AdapterCancion extends RecyclerView.Adapter<AdapterCancion.CancionV
         public CancionViewHolder(View itemView) {
             super(itemView);
             textViewTitulo = itemView.findViewById(R.id.titulo);
-            imageView = itemView.findViewById(R.id.imagenCancion);
             textViewDetalles = itemView.findViewById(R.id.detalles);
+            imageView = itemView.findViewById(R.id.imagenCancion);
         }
 
     }
