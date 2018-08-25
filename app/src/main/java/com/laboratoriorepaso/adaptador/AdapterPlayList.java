@@ -11,45 +11,33 @@ import android.widget.TextView;
 
 import com.laboratoriorepaso.clases.Cancion;
 import com.laboratoriorepaso.kevin.laboratoriorepaso.R;
-import com.laboratoriorepaso.kevin.laboratoriorepaso.SplashScreenActivity;
 
-import java.util.HashMap;
+import java.util.List;
 
-public class AdapterCancion extends RecyclerView.Adapter<AdapterCancion.CancionViewHolder> implements View.OnClickListener{
+public class AdapterPlayList extends RecyclerView.Adapter<AdapterPlayList.PlayListViewHolder> implements View.OnClickListener{
 
     private Context miContexto;
-    private HashMap<String,Cancion> listaCanciones;
+    private List<Cancion> listaCanciones;
     private View.OnClickListener listener;
 
-    public AdapterCancion(Context miContexto, HashMap<String,Cancion> listaCanciones) {
+    public AdapterPlayList(Context miContexto, List<Cancion> listaCanciones) {
         this.miContexto = miContexto;
         this.listaCanciones = listaCanciones;
     }
 
-    public String getLlave(int position)
-    {
-        return (String) SplashScreenActivity.llaves.get(position);
-    }
-
 
     @Override
-    public CancionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PlayListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(miContexto);
         View view = inflater.inflate(R.layout.costume_row_canciones,null);
-        CancionViewHolder holder = new CancionViewHolder(view);
+        PlayListViewHolder holder = new PlayListViewHolder(view);
         view.setOnClickListener(this);
         return holder;
     }
 
-    public void filtrarLista(HashMap<String,Cancion> lista){
-        listaCanciones = lista;
-        notifyDataSetChanged();
-    }
-
     @Override
-    public void onBindViewHolder(@NonNull CancionViewHolder holder, int i) {
-        String llave = getLlave(i);
-        Cancion cancion = listaCanciones.get(llave);
+    public void onBindViewHolder(@NonNull PlayListViewHolder holder, int position) {
+        Cancion cancion = listaCanciones.get(position);
         holder.textViewTitulo.setText(cancion.getNombre());
         holder.textViewDetalles.setText(cancion.getCategoria()+ "\n" +
                 cancion.getAlbum() + "\n" + cancion.getDuracion());
@@ -72,15 +60,15 @@ public class AdapterCancion extends RecyclerView.Adapter<AdapterCancion.CancionV
         }
     }
 
-    class CancionViewHolder extends RecyclerView.ViewHolder{
+    class PlayListViewHolder extends RecyclerView.ViewHolder{
         TextView textViewTitulo, textViewDetalles;
         ImageView imageView;
 
-        public CancionViewHolder(View itemView) {
+        public PlayListViewHolder(View itemView) {
             super(itemView);
             textViewTitulo = itemView.findViewById(R.id.titulo);
-            textViewDetalles = itemView.findViewById(R.id.detalles);
             imageView = itemView.findViewById(R.id.imagenCancion);
+            textViewDetalles = itemView.findViewById(R.id.detalles);
         }
 
     }
