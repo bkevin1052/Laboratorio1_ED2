@@ -42,7 +42,6 @@ public class SplashScreenActivity extends Activity {
         listaCanciones = new HashMap<>();
         setData();
         llaves = new ArrayList<>(listaCanciones.keySet());
-
         new Handler().postDelayed(() -> startActivity(new Intent(SplashScreenActivity.this,PrincipalActivity.class)),5300);
     }
 

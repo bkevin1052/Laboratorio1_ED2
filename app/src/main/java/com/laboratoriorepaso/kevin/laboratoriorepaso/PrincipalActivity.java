@@ -24,7 +24,6 @@ public class PrincipalActivity extends AppCompatActivity {
     EditText buscador;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,13 +71,15 @@ public class PrincipalActivity extends AppCompatActivity {
         });
     }
 
+    //Metodo para poder realizar busqueda dentro del diccionario, asi mismo ingresar texto
     private void filtro(String text){
         HashMap<String,Cancion> listaFiltrada = new HashMap<>();
-        for(Cancion item: listaFiltrada.values()){
-            if (item.getNombre().toLowerCase().contains(text)){
-                listaFiltrada.put(item.getNombre(),item);
-            }
+
+        for(Cancion item: SplashScreenActivity.listaCanciones.values()){
+            if(item.getNombre().toLowerCase().contains(text.toLowerCase()))
+                listaFiltrada.put(item.getNombre(), item);
         }
+
         adapterCancion.filtrarLista(listaFiltrada);
     }
 }
