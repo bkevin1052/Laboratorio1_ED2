@@ -35,6 +35,11 @@ public class AdapterPlayList extends RecyclerView.Adapter<AdapterPlayList.PlayLi
         return holder;
     }
 
+    public void eliminar(List<Cancion> lista){
+        listaCanciones = lista;
+        notifyDataSetChanged();
+    }
+
     @Override
     public void onBindViewHolder(@NonNull PlayListViewHolder holder, int position) {
         Cancion cancion = listaCanciones.get(position);

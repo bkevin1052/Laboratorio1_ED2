@@ -72,6 +72,7 @@ public class PrincipalActivity extends AppCompatActivity {
         //Boton ver Play list
         playList.setOnClickListener(view->{
             startActivity(new Intent(PrincipalActivity.this,PlayListActivity.class));
+            finish();
         });
     }
 }

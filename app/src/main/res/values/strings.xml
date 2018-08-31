@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Lista de canciones</string>
+    <string name="id_basura">&#xf1f8;</string>
 </resources>

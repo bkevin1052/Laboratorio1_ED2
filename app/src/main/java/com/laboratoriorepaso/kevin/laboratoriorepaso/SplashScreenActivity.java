@@ -43,7 +43,7 @@ public class SplashScreenActivity extends Activity {
         inferior.setAnimation(animation);
         setData();
         llaves = new ArrayList<>(listaCanciones.keySet());
-        new Handler().postDelayed(() -> startActivity(new Intent(SplashScreenActivity.this,PrincipalActivity.class)),5300);
+        new Handler().postDelayed(() -> startActivity(new Intent(SplashScreenActivity.this,PrincipalActivity.class)),4500);
     }
 
     private void setData(){
