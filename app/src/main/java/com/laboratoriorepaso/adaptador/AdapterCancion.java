@@ -8,20 +8,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.laboratoriorepaso.clases.Cancion;
 import com.laboratoriorepaso.kevin.laboratoriorepaso.R;
 import com.laboratoriorepaso.kevin.laboratoriorepaso.SplashScreenActivity;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class AdapterCancion extends RecyclerView.Adapter<AdapterCancion.CancionViewHolder> implements View.OnClickListener{
 
     private Context miContexto;
-    private HashMap<String,Cancion> listaCanciones;
+    private Map<String,Cancion> listaCanciones;
     private View.OnClickListener listener;
 
-    public AdapterCancion(Context miContexto, HashMap<String,Cancion> listaCanciones) {
+    public AdapterCancion(Context miContexto, Map<String,Cancion> listaCanciones) {
         this.miContexto = miContexto;
         this.listaCanciones = listaCanciones;
     }
@@ -41,9 +44,9 @@ public class AdapterCancion extends RecyclerView.Adapter<AdapterCancion.CancionV
         return holder;
     }
 
-    public void filtrarLista(HashMap<String,Cancion> lista){
-        listaCanciones = lista;
-        notifyDataSetChanged();
+    public void filtrarLista(Map<String,Cancion> lista){
+            listaCanciones = lista;
+            notifyDataSetChanged();
     }
 
     @Override

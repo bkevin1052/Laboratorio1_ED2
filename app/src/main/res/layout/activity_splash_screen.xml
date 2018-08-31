@@ -41,7 +41,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="34dp"
-        android:src="@drawable/cancion2"
+        android:src="@drawable/cancion"
         app:civ_border_color="#B71C1C"
         app:civ_border_width="0dp" />
 

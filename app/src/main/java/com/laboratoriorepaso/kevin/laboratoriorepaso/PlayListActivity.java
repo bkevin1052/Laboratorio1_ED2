@@ -27,7 +27,6 @@ public class PlayListActivity extends AppCompatActivity {
         adapterPlayList = new AdapterPlayList(this, playList);
         recyclerViewCancion.setAdapter(adapterPlayList);
 
-
         adapterPlayList.setOnClickListener(view -> {
             Toast.makeText(getApplicationContext(),"Reproduciendo cancion",Toast.LENGTH_SHORT).show();
         });

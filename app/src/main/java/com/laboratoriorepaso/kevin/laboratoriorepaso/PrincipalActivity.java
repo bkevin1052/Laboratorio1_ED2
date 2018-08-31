@@ -15,12 +15,14 @@ import com.laboratoriorepaso.adaptador.AdapterCancion;
 import com.laboratoriorepaso.clases.Cancion;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class PrincipalActivity extends AppCompatActivity {
 
     RecyclerView recyclerViewCancion;
     AdapterCancion adapterCancion;
-    Button playList;
+    Button playList,buscar,verTodas;
     EditText buscador;
 
 
@@ -32,54 +34,44 @@ public class PrincipalActivity extends AppCompatActivity {
         playList = (Button)findViewById(R.id.verPlaylist);
         recyclerViewCancion = (RecyclerView) findViewById(R.id.RecyclerViewVerTodas);
         buscador = (EditText)findViewById(R.id.idBuscaListaB);
+        verTodas = (Button)findViewById(R.id.verTodasCanciones);
+        buscar = (Button)findViewById(R.id.buscar);
 
-        buscador.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-                filtro(editable.toString());
-            }
-        });
-
-        //Creacion de canciones
-
-
-
-        //configuracion del adapter y recyclerview
+        //Configuracion del adapter y recyclerview
         recyclerViewCancion.setLayoutManager(new LinearLayoutManager(this));
         adapterCancion = new AdapterCancion(this, SplashScreenActivity.listaCanciones);
         recyclerViewCancion.setAdapter(adapterCancion);
+        SplashScreenActivity.llaves.clear();
+        SplashScreenActivity.llaves.addAll(SplashScreenActivity.listaCanciones.keySet());
 
         adapterCancion.setOnClickListener(view -> {
             PlayListActivity.playList.add(SplashScreenActivity.listaCanciones.get(SplashScreenActivity.llaves.get(recyclerViewCancion.getChildAdapterPosition(view))));
             Toast.makeText(getApplicationContext(),"Cancion agregada a Play List",Toast.LENGTH_SHORT).show();
         });
 
+        buscar.setOnClickListener(view ->{
+            String texto = buscador.getText().toString();
+            Map<String,Cancion> listaFiltrada = new TreeMap<>();
+            try {
+                Cancion item = SplashScreenActivity.listaCanciones.get(texto);
+                listaFiltrada.put(item.getNombre(), item);
+                SplashScreenActivity.llaves.clear();
+                SplashScreenActivity.llaves.addAll(listaFiltrada.keySet());
+                adapterCancion.filtrarLista(listaFiltrada);
+            }catch(Exception e){
+                Toast.makeText(getApplicationContext(),"No se pudo encontrar la cancion",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        verTodas.setOnClickListener(view ->{
+            SplashScreenActivity.llaves.clear();
+            SplashScreenActivity.llaves.addAll(SplashScreenActivity.listaCanciones.keySet());
+            adapterCancion.filtrarLista(SplashScreenActivity.listaCanciones);
+        });
+
         //Boton ver Play list
         playList.setOnClickListener(view->{
             startActivity(new Intent(PrincipalActivity.this,PlayListActivity.class));
         });
-    }
-
-    //Metodo para poder realizar busqueda dentro del diccionario, asi mismo ingresar texto
-    private void filtro(String text){
-        HashMap<String,Cancion> listaFiltrada = new HashMap<>();
-
-        for(Cancion item: SplashScreenActivity.listaCanciones.values()){
-            if(item.getNombre().toLowerCase().contains(text.toLowerCase()))
-                listaFiltrada.put(item.getNombre(), item);
-        }
-
-        adapterCancion.filtrarLista(listaFiltrada);
     }
 }
