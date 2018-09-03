@@ -6,10 +6,10 @@ public class Cancion {
     private String autor;
     private String categoria;
     private String album;
-    private int duracion;
+    private String duracion;
     private int imagen;
 
-    public Cancion(String nombre,String categoria,String album, int duracion,int imagen,String autor) {
+    public Cancion(String nombre,String categoria,String album, String duracion,int imagen,String autor) {
         this.nombre = nombre;
         this.categoria = categoria;
         this.album = album;
@@ -18,11 +18,11 @@ public class Cancion {
         this.autor = autor;
     }
 
-    public int getDuracion() {
+    public String getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(int duracion) {
+    public void setDuracion(String duracion) {
         this.duracion = duracion;
     }
 

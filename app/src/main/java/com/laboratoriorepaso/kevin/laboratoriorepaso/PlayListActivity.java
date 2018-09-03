@@ -41,7 +41,6 @@ public class PlayListActivity extends AppCompatActivity {
             dlgAlert.setPositiveButton("SI", (dialogInterface, i) -> {
                 playList.clear();
                 adapterPlayList.eliminar(playList);
-                finish();
                 startActivity(new Intent(PlayListActivity.this,PrincipalActivity.class));
             });
             dlgAlert.setNegativeButton("NO", (dialogInterface, i) -> dialogInterface.cancel());
