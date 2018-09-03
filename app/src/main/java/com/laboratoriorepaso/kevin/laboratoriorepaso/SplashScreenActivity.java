@@ -47,16 +47,16 @@ public class SplashScreenActivity extends Activity {
     }
 
     private void setData(){
-        listaCanciones.put("es por ti",new Cancion("es por ti","Pop Latino","Pa Dentro",500,R.drawable.cancion,"Juanes"));
-        listaCanciones.put("waiting for love",new Cancion("waiting for love","Electronica","Stories",300,R.drawable.cancion,"Avicii"));
-        listaCanciones.put("the nights",new Cancion("the nights","Electronica","Stories",600,R.drawable.cancion,"Avicii"));
-        listaCanciones.put("time on myhands",new Cancion("time on myhands","Pop Rock","As Time Goes By",800,R.drawable.cancion,"Bryan Ferry"));
-        listaCanciones.put("boulevard of broken dreams",new Cancion("boulevard of broken dreams","Punk Rock","American Idiot",500,R.drawable.cancion,"Green Day"));
-        listaCanciones.put("another brick in the wall",new Cancion("another brick in the wall","Rock","The Wall",500,R.drawable.cancion,"Pink Floyd"));
-        listaCanciones.put("bohemian rhapsody",new Cancion("bohemian rhapsody","Rock","A Night at the Opera",500,R.drawable.cancion,"Queen"));
-        listaCanciones.put("blitzkrieg bop",new Cancion("blitzkrieg bop","Punk","Ramones",500,R.drawable.cancion,"Ramones"));
-        listaCanciones.put("bella",new Cancion("bella","Reggaeton","Bella",500,R.drawable.cancion,"Maluma"));
-        listaCanciones.put("flojos de pantalon",new Cancion("flojos de pantalon","Rock","Jugar al gua",500,R.drawable.cancion,"Rosendo"));
-        listaCanciones.put("a quien le importa",new Cancion("a quien le importa","Electronica","Operación Vodevil",500,R.drawable.cancion,"Fangoria"));
+        listaCanciones.put("Es por ti",new Cancion("Es por ti","Pop Latino","Pa Dentro",500,R.drawable.cancion,"Juanes"));
+        listaCanciones.put("Waiting for love",new Cancion("Waiting for love","Electronica","Stories",300,R.drawable.cancion,"Avicii"));
+        listaCanciones.put("The nights",new Cancion("The nights","Electronica","Stories",600,R.drawable.cancion,"Avicii"));
+        listaCanciones.put("Time on myhands",new Cancion("Time on myhands","Pop Rock","As Time Goes By",800,R.drawable.cancion,"Bryan Ferry"));
+        listaCanciones.put("Boulevard of broken dreams",new Cancion("Boulevard of broken dreams","Punk Rock","American Idiot",500,R.drawable.cancion,"Green Day"));
+        listaCanciones.put("Another brick in the wall",new Cancion("Another brick in the wall","Rock","The Wall",500,R.drawable.cancion,"Pink Floyd"));
+        listaCanciones.put("Bohemian rhapsody",new Cancion("Bohemian rhapsody","Rock","A Night at the Opera",500,R.drawable.cancion,"Queen"));
+        listaCanciones.put("Blitzkrieg bop",new Cancion("Blitzkrieg bop","Punk","Ramones",500,R.drawable.cancion,"Ramones"));
+        listaCanciones.put("Bella",new Cancion("Bella","Reggaeton","Bella",500,R.drawable.cancion,"Maluma"));
+        listaCanciones.put("Flojos de pantalon",new Cancion("Flojos de pantalon","Rock","Jugar al gua",500,R.drawable.cancion,"Rosendo"));
+        listaCanciones.put("A quien le importa",new Cancion("A quien le importa","Electronica","Operación Vodevil",500,R.drawable.cancion,"Fangoria"));
     }
 }

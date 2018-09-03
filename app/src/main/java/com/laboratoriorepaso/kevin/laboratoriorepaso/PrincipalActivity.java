@@ -22,7 +22,7 @@ public class PrincipalActivity extends AppCompatActivity {
 
     RecyclerView recyclerViewCancion;
     AdapterCancion adapterCancion;
-    Button playList,buscar,verTodas;
+    Button playList,verTodas;
     EditText buscador;
 
 
@@ -35,33 +35,38 @@ public class PrincipalActivity extends AppCompatActivity {
         recyclerViewCancion = (RecyclerView) findViewById(R.id.RecyclerViewVerTodas);
         buscador = (EditText)findViewById(R.id.idBuscaListaB);
         verTodas = (Button)findViewById(R.id.verTodasCanciones);
-        buscar = (Button)findViewById(R.id.buscar);
 
         //Configuracion del adapter y recyclerview
         recyclerViewCancion.setLayoutManager(new LinearLayoutManager(this));
         adapterCancion = new AdapterCancion(this, SplashScreenActivity.listaCanciones);
         recyclerViewCancion.setAdapter(adapterCancion);
+
         SplashScreenActivity.llaves.clear();
         SplashScreenActivity.llaves.addAll(SplashScreenActivity.listaCanciones.keySet());
+
 
         adapterCancion.setOnClickListener(view -> {
             PlayListActivity.playList.add(SplashScreenActivity.listaCanciones.get(SplashScreenActivity.llaves.get(recyclerViewCancion.getChildAdapterPosition(view))));
             Toast.makeText(getApplicationContext(),"Cancion agregada a Play List",Toast.LENGTH_SHORT).show();
         });
 
-        buscar.setOnClickListener(view ->{
-            String texto = buscador.getText().toString();
-            Map<String,Cancion> listaFiltrada = new TreeMap<>();
-            try {
-                Cancion item = SplashScreenActivity.listaCanciones.get(texto);
-                listaFiltrada.put(item.getNombre(), item);
-                SplashScreenActivity.llaves.clear();
-                SplashScreenActivity.llaves.addAll(listaFiltrada.keySet());
-                adapterCancion.filtrarLista(listaFiltrada);
-            }catch(Exception e){
-                Toast.makeText(getApplicationContext(),"No se pudo encontrar la cancion",Toast.LENGTH_SHORT).show();
+        buscador.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filtro(s.toString());
             }
         });
+
 
         verTodas.setOnClickListener(view ->{
             SplashScreenActivity.llaves.clear();
@@ -74,5 +79,18 @@ public class PrincipalActivity extends AppCompatActivity {
             startActivity(new Intent(PrincipalActivity.this,PlayListActivity.class));
             finish();
         });
+    }
+
+    private void filtro(String texto){
+        Map<String,Cancion> listaFiltrada = new TreeMap<>();
+
+        for(Cancion cancion : SplashScreenActivity.listaCanciones.values()){
+            if(cancion.getNombre().toLowerCase().contains(texto.toLowerCase())){
+                listaFiltrada.put(cancion.getNombre(),cancion);
+            }
+        }
+        SplashScreenActivity.llaves.clear();
+        SplashScreenActivity.llaves.addAll(listaFiltrada.keySet());
+        adapterCancion.filtrarLista(listaFiltrada);
     }
 }
