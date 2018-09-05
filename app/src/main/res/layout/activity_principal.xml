@@ -25,7 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_toStartOf="@+id/RecyclerViewVerTodas"
-        android:hint="Ingrese nombre de la cancion"
+        android:hint="Ingrese nombre de la canción"
+        android:textColorHint="#F8F8FF"
         android:textColor="#F8F8FF"
         android:textSize="15sp" />
 
