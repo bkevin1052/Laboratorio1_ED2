@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -15,6 +16,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+
+import static java.lang.Thread.sleep;
 
 public class SplashScreenActivity extends Activity {
 
@@ -32,18 +35,19 @@ public class SplashScreenActivity extends Activity {
         setContentView(R.layout.activity_splash_screen);
 
 
-        superior = (TextView)findViewById(R.id.tituloBienvenido);
-        inferior = (TextView)findViewById(R.id.tituloZuper);
-        imagen = (ImageView)findViewById(R.id.logoImagen);
+        superior = (TextView) findViewById(R.id.tituloBienvenido);
+        inferior = (TextView) findViewById(R.id.tituloZuper);
+        imagen = (ImageView) findViewById(R.id.logoImagen);
 
-        Animation animation = AnimationUtils.loadAnimation(this,R.anim.up_to_down);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.up_to_down);
 
         imagen.setAnimation(animation);
         superior.setAnimation(animation);
         inferior.setAnimation(animation);
         setData();
         llaves = new ArrayList<>(listaCanciones.keySet());
-        new Handler().postDelayed(() -> startActivity(new Intent(SplashScreenActivity.this,PrincipalActivity.class)),3500);
+        new Handler().postDelayed(() -> startActivity(new Intent(SplashScreenActivity.this, PrincipalActivity.class)), 2500);
+
     }
 
     private void setData(){

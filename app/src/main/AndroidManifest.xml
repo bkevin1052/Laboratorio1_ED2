@@ -14,7 +14,8 @@
             android:name=".SplashScreenActivity"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen"
             android:screenOrientation="portrait"
-            android:parentActivityName=".PrincipalActivity">
+            android:parentActivityName=".PrincipalActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

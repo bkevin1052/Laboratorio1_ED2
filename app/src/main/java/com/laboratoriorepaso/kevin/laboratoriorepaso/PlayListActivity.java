@@ -31,6 +31,8 @@ public class PlayListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_list);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         eliminar = (TextView)findViewById(R.id.eliminar);
         btn1 = (Button)findViewById(R.id.DescendentePorDuracion);

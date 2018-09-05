@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -36,6 +37,8 @@ public class PrincipalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+
+
         //Indicando ID al objeto
         playList = (Button)findViewById(R.id.verPlaylist);
         recyclerViewCancion = (RecyclerView) findViewById(R.id.RecyclerViewVerTodas);
@@ -155,7 +158,9 @@ public class PrincipalActivity extends AppCompatActivity {
         playList.setOnClickListener(view->{
             startActivity(new Intent(PrincipalActivity.this,PlayListActivity.class));
         });
+
     }
+
 
     private void filtro(String texto){
         Map<String,Cancion> listaFiltrada = new HashMap<>();
